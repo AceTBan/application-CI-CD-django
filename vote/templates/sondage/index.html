@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>mon sondage</title>
+<link rel="stylesheet" type="text/css" href="{% static 'vote/style.css' %}">
+</head>
+
+<body>
+
+  {% if question_list %}
+  <ul>
+      {% for question in question_list %}
+      <li>
+         <h1> <a href="/vote/{{question.id}}">{{question.elections_name}}</a></h1>
+        </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>Pas de sondage disponible.</p>
+    {% endif %}
+
+</body>
+
+</html>
